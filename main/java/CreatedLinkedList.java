@@ -91,10 +91,8 @@ public class CreatedLinkedList <K> {
         return temp;
     }
 
-    public INode findNode(K key) {
-        INode temp = start;
-        boolean found = false;
-        System.out.println(temp);
+    public INode<K> findNode(K key) {
+        INode<K> temp = this.start;
         while (temp != null) {
             if (temp.getKey().equals(key)) {
                 return temp;
