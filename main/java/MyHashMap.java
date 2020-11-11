@@ -51,6 +51,22 @@ public class MyHashMap<K, V> {
         }
     }
 
+    public V delete(K key){
+        int index = this.getBucketIndex(key);
+        CreatedLinkedList<K> linkedList = this.myBucket.get(index);
+        if(linkedList == null){
+            return null;
+        }
+        MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) linkedList.findNode(key);
+        if (myMapNode == null){
+            return null;
+        }
+        else {
+            linkedList.remove(myMapNode);
+            return myMapNode.getValue();
+        }
+    }
+
     @Override
     public String toString() {
         return " " + myBucket + " ";

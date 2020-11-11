@@ -103,6 +103,22 @@ public class CreatedLinkedList <K> {
         return null;
     }
 
+    public INode<K> remove(INode<K> node) {
+        INode<K> removedNode = findNode(node.getKey());
+        if(removedNode != null) {
+            INode<K> tempNode = this.start;
+            while(tempNode.getNext() !=  removedNode) {
+                tempNode = tempNode.getNext();
+            }
+            tempNode.setNext(removedNode.getNext());
+            return removedNode;
+        }
+        else {
+            System.out.println("Node can't deleted");
+            return null;
+        }
+    }
+
     public void printMyNode(){
         System.out.println("My nodes" +start);
         System.out.println("Size of linked list" +size);
